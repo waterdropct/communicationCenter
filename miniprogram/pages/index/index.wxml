@@ -1,0 +1,39 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- swiper -->
+  <view class="index-swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{swiperList}}" wx:key="index">
+        <swiper-item>
+          <image mode="scaleToFill" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 列表 -->
+  <view class="task-list">
+    <view class="list-type">
+      <view wx:for="{{filterType}}" wx:key="index" data-filter-type="{{item.id}}" bind:tap="filterChange">
+        <text class="{{activeFilter == item.id ? 'list-type-active' : ''}}">{{item.text}}</text>
+      </view>
+    </view>
+    <view class="list-container">
+      <view class="list-item" wx:for="{{listData}}" wx:key="index" data-show-id="{{item._id}}" bind:tap="openDetail">
+        <image class="user-avatar" mode="scaleToFill" src="{{item.avatarUrl}}"></image>
+        <view class="item-content">
+          <view>
+            <text class="item-userName">{{item.userName}}</text>
+            <text hidden="{{item.hasDone}}" class="item-status item-status-on">进行中</text>
+            <text hidden="{{!item.hasDone}}" class="item-status item-status-done">已完成</text>
+          </view>
+          <view>
+            <text class="item-title">{{item.title}}</text>
+          </view>
+          <text class="item-viewCount">{{item.viewCount}}次浏览</text>
+          <text class="item-publishTime">{{item.publishTime}}</text>
+        </view>
+      </view>
+      <text class="content-onload">我是有底线的... ╮(╯▽╰)╭</text>
+    </view>
+  </view>
+</view>

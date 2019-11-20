@@ -1,0 +1,36 @@
+<!-- publish.wxml -->
+<view class="container">
+  <!-- 列表 -->
+  <view class="publish-page">
+    <view class="pbulish-title">发布交易内容</view>
+    <view class="page-section">
+      <view class="weui-cells__title">标题(必填):</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <input bindinput="onGetInput" class="weui-input" maxlength="30" value="{{title}}" placeholder="请输入标题,长度不超过30字" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">内容(必填):</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <textarea bindinput="onGetContent" maxlength="300" value="{{content}}" auto-height placeholder="请输入内容,长度不超过300字" />
+        </view>
+      </view>
+    </view>
+    <view class="upload-image">
+      <view class="weui-cells__title">添加图片({{imgNum}}/4):</view>
+      <view class="image-list">
+        <view class="list-item" wx:for="{{imgList}}" wx:key="index">
+          <image class="delete-image" src="../../images/delete.svg" mode="widthFix" data-index="{{index}}" bindtap="deleteImg"></image>
+          <image class="uploader-image" src="{{item.filePath}}" data-id="{{item.filePath}}" mode="widthFix" bindtap="previewImage"></image>
+        </view>
+      </view>
+      <button bind:tap="doUpload" size="mini" disabled="{{uploadDisabel}}" type="default">
+        上传
+      </button>
+    </view>
+    <button bind:tap="onSubmit" disabled="{{submitDisabel}}" type="primary">发布</button>
+  </view>
+</view>

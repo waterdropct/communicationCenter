@@ -1,0 +1,51 @@
+/* publish.wxss */
+.publish-page{
+    width: 100%;
+}
+.pbulish-title{
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-size: 32rpx;
+}
+.page-section{
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+.page-section .weui-input{
+    width: 100%;
+}
+.page-section textarea{
+    width: 100%;
+    min-height: 100rpx;
+}
+.upload-image{
+    margin: 20rpx;
+}
+.upload-image .weui-cells__title{
+    padding-left: 0rpx;
+}
+.image-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.image-list .list-item{
+    width: 45%;
+    margin-right: 20rpx;
+    position: relative;
+}
+.image-list image{
+    width: 100%;
+}
+.publish-page > button{
+    margin: 20rpx;
+}
+.list-item .delete-image{
+    position: absolute;
+    top: 5rpx;
+    right: 5rpx;
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,38 @@
+<!-- pages/detail/detail.wxml -->
+<view class="container">
+    <view class="container-title">详情</view>
+    <view class="page-content">
+        <view class="page-top">
+            <image class="user-avatar" mode="scaleToFill" src="{{pageData.avatarUrl}}"></image>
+            <view class="page-right">
+                <view>
+                    <text class="page-userName">{{pageData.userName}}</text>
+                    <view class="btn-show">
+                        <image wx:if="{{showStar && !hasStar}}" class="btn-img" src="../../images/star.svg" mode="widthFix" bindtap="onStar"></image>
+                        <image wx:if="{{showStar && hasStar}}" class="btn-img" src="../../images/star_cancel.svg" mode="widthFix" bindtap="onCancelStar"></image>
+                        <image wx:if="{{!showStar}}" class="btn-img" src="../../images/delete1.svg" mode="widthFix" bindtap="onDelete"></image>
+                    </view>
+                </view>
+                <view>
+                    <text class="page-title">标题：{{pageData.title}}</text>
+                </view>
+                <view class="page-status">
+                        <image wx:if="{{pageData.hasDone}}" class="btn-img" src="../../images/finish.svg" mode="widthFix"></image>
+                        <image wx:if="{{!pageData.hasDone}}" class="btn-img" src="../../images/process.svg" mode="widthFix"></image>
+                </view>
+            </view>
+        </view>
+        <view class="page-detail">
+            <text>{{pageData.content}}</text>
+        </view>
+        <view class="page-imaglist">
+            <view class="image-item" wx:for="{{pageData.imageList}}" wx:key="index">
+                <image class="btn-img" src="{{item.fileID}}" data-id="{{item.fileID}}" mode="widthFix" bindtap="previewImage"></image>
+            </view>
+        </view>
+        <view class="page-bottom">
+            <text class="page-viewCount">{{pageData.viewCount}}次浏览</text>
+            <text class="page-publishTime">{{pageData.publishTime}}</text>
+        </view>
+    </view>
+</view>

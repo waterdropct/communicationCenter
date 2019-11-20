@@ -1,0 +1,22 @@
+<!-- user.wxml -->
+<view class="container">
+    <!-- 用户 openid -->
+    <view class="userinfo">
+        <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+        <text>{{userName}}</text>
+    </view>
+    <view wx:if="{{logged}}" class="ownpublish">
+        <navigator url="../publishlist/publishlist?type=publish" hover-class="none">
+            <view class="list">
+                <text>我发布的</text>
+            </view>
+        </navigator>
+    </view>
+    <view wx:if="{{logged}}" class="ownstar">
+        <navigator url="../publishlist/publishlist?type=star" hover-class="none">
+            <view class="list">
+                <text>我关注的</text>
+            </view>
+        </navigator>
+    </view>
+</view>

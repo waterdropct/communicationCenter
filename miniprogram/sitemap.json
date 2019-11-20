@@ -1,0 +1,7 @@
+{
+  "desc": "暂时只支持首页被索引",
+  "rules": [{
+  "action": "allow",
+  "page": "pages/index/index"
+  }]
+}

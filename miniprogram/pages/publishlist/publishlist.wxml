@@ -1,0 +1,12 @@
+<!-- pages/publishlist/publishlist.wxml -->
+<view class="container">
+  <view class="list-title">{{title}}</view>
+  <view class="list-content">
+    <view class="list-item" wx:for="{{listData}}" wx:key="index" data-page-id="{{item._id}}" bind:tap="openDetailPage">
+      <text class="item-title">{{item.title}}</text>
+    </view>
+  </view>
+  <view>
+    <text wx:if="{{showNoData}}" class="content-nodata">你太懒了，列表是空的... ╮(╯▽╰)╭</text>
+    </view>
+</view>
